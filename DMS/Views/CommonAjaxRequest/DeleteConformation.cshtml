@@ -1,0 +1,69 @@
+﻿
+@model DMS.Models.DeleteConformationViewModel
+    @{ 
+        Layout = null;
+    }
+<div class="modal-dialog" style="width:501px !important;margin:0 auto;">
+    <div class="modal-content">
+        <div class="modal-header" style="background:#d9534f;color:white;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title primary" id="delete-conformation">
+                Delete Confirmation
+            </h4>
+        </div>
+
+        <div class="modal-body">
+            <div class="row">
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+
+                        @Html.TextBox("id", Model.Id, new { @class = "hidden" })
+                        @Html.TextBox("controllerName", Model.ControllerName, new { @class = "hidden" })
+                        @Html.TextBox("partialActionName", Model.PartialActionName, new { @class = "hidden",@id= "partialActionName" })
+                        @Html.TextBox("appendHtmlId", Model.AppendHtmlId, new { @class = "hidden" })
+                        @Html.TextBox("areaName", Model.AreaName, new { @class = "hidden",@id= "areaName" })
+                        <span>
+                            Are you sure you want to delete this:
+                        </span>
+                        <strong>
+                            "@Model.Name"
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <input type="submit" class="btn btn-danger" value="Delete" onclick="deleteData()" />
+            </div>
+        </div>
+        @*}*@
+    </div>
+</div>
+<script>
+    var deleteData = function () {
+        var id = $('#id').val();
+        var controller = $('#controllerName').val();
+        var partialActionName = $('#partialActionName').val();
+        var areaName = $('#areaName').val();
+        var appendHtmlId = $('#appendHtmlId').val();
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action(Model.ActionName,Model.ControllerName,Model.AreaName)',
+            data:
+                                 {
+                                     id: id,
+                                 },
+            success: function (result) {
+                search('', '', appendHtmlId, partialActionName, controller, areaName);
+                $("#delete-conformation").modal('hide');
+                bootstrap_alert('#form_errors', result, 3000)
+            },
+            error: function () {
+                bootstrap_alert('#form_errors', result, 3000)
+            }
+        });
+    }
+</script>

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="input-group input-group-sm">
+            <input type="text" class="form-control" id="departmentNameId" onkeypress="searchFunction(' ')">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-info btn-flat" onclick="searchFunction(' ')">Search</button>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="table table-responsive">
+
+
+    <div id="departmentList"></div>
+
+</div>
+@*<link href="~/Content/AdminLTE.css" rel="stylesheet" />
+    <script src="~/Scripts/CustomScripts/globalFunction.js"></script>*@
+
+<div class="modal fade" id="add-department" tabindex="-1" role="dialog" aria-labelledby="addDepartment">
+    @{Html.RenderAction("Create", "SetupDepartment");}
+</div>
+
+<div class="modal fade" id="update-department" tabindex="-1" role="dialog" aria-labelledby="editDepartment">
+        @{Html.RenderAction("Edit", "SetupDepartment");}
+    </div>
+
+<div class="modal fade" id="delete-conformation" tabindex="-1" role="dialog" aria-labelledby="deleteconformation">
+    @{Html.RenderAction("DeleteConformation", "CommonAjaxRequest", new { area="" });}
+</div>
+
+
+<script>
+    $(document).ready(function (e) {
+        search($('#departmentNameId').val(), '', '#departmentList', '_GetDepartmentList', 'SetupDepartment', 'SetupArea');
+    });
+</script>

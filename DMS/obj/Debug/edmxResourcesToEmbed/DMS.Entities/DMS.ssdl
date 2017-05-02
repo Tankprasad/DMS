@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SetupDepartment">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="DeletedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SetupHaeadOffice">
+    <Key>
+      <PropertyRef Name="HeadOfficeId" />
+    </Key>
+    <Property Name="HeadOfficeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HeadOfficeCode" Type="nvarchar" MaxLength="300" />
+    <Property Name="HeadOfficeName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="200" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="600" />
+    <Property Name="Location" Type="nvarchar" MaxLength="300" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="District" Type="nvarchar" MaxLength="200" />
+    <Property Name="Metropolitan" Type="nvarchar" MaxLength="200" />
+    <Property Name="SubMetropolitan" Type="nvarchar" MaxLength="200" />
+    <Property Name="Municipality" Type="nvarchar" MaxLength="200" />
+    <Property Name="GauPalika" Type="nvarchar" MaxLength="200" />
+    <Property Name="WardNo" Type="nvarchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="bigint" />
+    <Property Name="Web" Type="nvarchar" MaxLength="300" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="300" />
+    <Property Name="PanNo" Type="nvarchar" MaxLength="300" />
+    <Property Name="VatNo" Type="int" />
+    <Property Name="EstablishDate" Type="datetime" />
+    <Property Name="RegisteredDate" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="DeletedBy" Type="int" />
+  </EntityType>
+  <EntityContainer Name="DMSModelStoreContainer">
+    <EntitySet Name="SetupDepartment" EntityType="Self.SetupDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SetupHaeadOffice" EntityType="Self.SetupHaeadOffice" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

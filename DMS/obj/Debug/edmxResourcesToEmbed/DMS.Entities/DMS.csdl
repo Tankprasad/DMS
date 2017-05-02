@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SetupDepartment">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DeletedBy" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="DMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SetupDepartments" EntityType="Self.SetupDepartment" />
+    <EntitySet Name="SetupHaeadOffices" EntityType="DMSModel.SetupHaeadOffice" />
+  </EntityContainer>
+  <EntityType Name="SetupHaeadOffice">
+    <Key>
+      <PropertyRef Name="HeadOfficeId" />
+    </Key>
+    <Property Name="HeadOfficeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HeadOfficeCode" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="HeadOfficeName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="District" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Metropolitan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SubMetropolitan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Municipality" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GauPalika" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="WardNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int64" />
+    <Property Name="Web" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="EmailId" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="PanNo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="VatNo" Type="Int32" />
+    <Property Name="EstablishDate" Type="DateTime" Precision="3" />
+    <Property Name="RegisteredDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DeletedBy" Type="Int32" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,34 @@
+﻿@model DMS.Areas.SetupArea.Models.SetupMasterViewModel.SetupDepartmentViewModel
+   
+
+<form id="setupDepartment">
+    <div class="modal-dialog" style="margin-left:35%;">
+        <div class="modal-content" style="width:500px !important;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="box-primary" id="addDepartment">
+                    <strong>Add New Department</strong>
+                </h4>
+            </div>
+            <div class="modal-body">
+                @Html.ValidationSummary(true)
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label>
+                                Department Name<span style="color:red">*</span>
+                            </label>
+                            @Html.TextBoxFor(model => model.DepartmentName, new { @class = "form-control", @placeholder = "Department Name" })
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="button" class="btn btn-primary" value="Save" onclick="postData('#setupDepartment', '#add-department', 'Create', 'SetupDepartment','SetupArea', '#departmentList', '_GetDepartmentList')" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

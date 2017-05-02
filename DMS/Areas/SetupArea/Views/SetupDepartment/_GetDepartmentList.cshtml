@@ -1,0 +1,100 @@
+﻿@model DMS.Areas.SetupArea.Models.SetupMasterViewModel.SetupDepartmentViewModel
+@{
+
+    int i = 1;
+}
+
+<link href="~/Content/AdminLTE.css" rel="stylesheet" />
+<div class="box box-solid box-primary">
+    <div class="box-header">
+        <h3 class="box-title">Department List</h3>
+    </div>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-sm-2">
+                <input type="button" value="Add New" class="btn btn-primary" onclick="addNew('#add-department', 'Create', 'SetupDepartment', 'SetupArea')" />
+            </div>
+
+        </div>
+        <table class="table table-responsive table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>S.N</th>
+                    <th>Deparment</th>
+                    <th>Active</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model.SetupDepartmentViewModelList)
+                {
+                    <tr class="even pointer">
+                        <td>@i</td>
+                        <td>@item.DepartmentName</td>
+                        <td>@item.Status</td>
+                        <td style="width:300px;">
+                            <button class="btn btn-primary" onclick="update(@item.DepartmentId,'#update-department','Edit','SetupDepartment','SetupArea')"><span class="fa fa-edit"></span></button>
+                            <button class="btn btn-danger" onclick="deleteRow(@item.DepartmentId,'@item.DepartmentName','Delete','SetupDepartment','_GetDepartmentList','SetupArea','#departmentList')"><span class="fa fa-trash"></span></button>
+                        </td>
+
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+        <div class="box-tools">
+            @if (Model.pager.EndPage > 1)
+            {
+            <ul class="pagination">
+                @if (Model.pager.CurrentPage > 1)
+                 {
+                    <li>
+                        <a href="#" onclick="searchFnction('')">
+                            First
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="searchFnction(@(Model.pager.CurrentPage - 1))">
+                            Previous
+                        </a>
+                    </li>
+                    }
+
+                @for (var page = Model.pager.StartPage; page <= Model.pager.EndPage; page++)
+                    {
+                    <li class="@(page == Model.pager.CurrentPage ? "active" : "")">
+
+                        <a href="#" onclick="searchFnction(@page)">
+                            @page
+                        </a>
+
+                    </li>
+                    }
+
+                @if (Model.pager.CurrentPage < Model.pager.TotalPages)
+                    {
+                    <li>
+                        <a href="#" onclick="searchFnction(@(Model.pager.CurrentPage + 1))">
+                            Next
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="#" onclick="searchFnction(@Model.pager.TotalPages)">
+                            Last
+                        </a>
+                    </li>
+                    }
+            </ul>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    var searchFnction = function (val) {
+        search($('#departmentNameId').val(), val, '#departmentList', '_GetDepartmentList', 'SetupDepartment', 'SetupArea')
+    }
+</script>

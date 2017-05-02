@@ -1,0 +1,46 @@
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\DMS.Service.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\DMS.Service.pdb
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\DMS.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\EntityFramework.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.Owin.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.Optimization.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.Mvc.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Owin.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.Razor.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.WebPages.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\DMS.pdb
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\EntityFramework.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.Owin.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.Optimization.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.Mvc.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.Razor.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.WebPages.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\obj\Debug\DMS.Service.csprojResolveAssemblyReference.cache
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\obj\Debug\DMS.Service.dll
+C:\Users\User-Pc\Desktop\DMS\DMS.Service\obj\Debug\DMS.Service.pdb
+E:\Current Project\DMS\DMS\DMS.Service\bin\Debug\DMS.Service.dll
+E:\Current Project\DMS\DMS\DMS.Service\bin\Debug\DMS.Service.pdb
+E:\Current Project\DMS\DMS\DMS.Service\bin\Debug\DMS.dll
+E:\Current Project\DMS\DMS\DMS.Service\bin\Debug\EntityFramework.dll
+E:\Current Project\DMS\DMS\DMS.Service\bin\Debug\DMS.pdb
+E:\Current Project\DMS\DMS\DMS.Service\bin\Debug\EntityFramework.xml
+E:\Current Project\DMS\DMS\DMS.Service\obj\Debug\DMS.Service.csprojResolveAssemblyReference.cache
+E:\Current Project\DMS\DMS\DMS.Service\obj\Debug\DMS.Service.dll
+E:\Current Project\DMS\DMS\DMS.Service\obj\Debug\DMS.Service.pdb
