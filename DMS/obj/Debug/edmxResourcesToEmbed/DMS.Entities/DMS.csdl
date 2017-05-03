@@ -17,6 +17,11 @@
   <EntityContainer Name="DMSEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="SetupDepartments" EntityType="Self.SetupDepartment" />
     <EntitySet Name="SetupHaeadOffices" EntityType="DMSModel.SetupHaeadOffice" />
+    <EntitySet Name="SetupBranches" EntityType="DMSModel.SetupBranch" />
+    <AssociationSet Name="Fk_SetupBranch_SetupHeadOffice_HeadOfficeId" Association="DMSModel.Fk_SetupBranch_SetupHeadOffice_HeadOfficeId">
+      <End Role="SetupHaeadOffice" EntitySet="SetupHaeadOffices" />
+      <End Role="SetupBranch" EntitySet="SetupBranches" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="SetupHaeadOffice">
     <Key>
@@ -49,5 +54,52 @@
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="UpdatedBy" Type="Int32" />
     <Property Name="DeletedBy" Type="Int32" />
+    <NavigationProperty Name="SetupBranches" Relationship="DMSModel.Fk_SetupBranch_SetupHeadOffice_HeadOfficeId" FromRole="SetupHaeadOffice" ToRole="SetupBranch" />
   </EntityType>
+  <EntityType Name="SetupBranch">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchCode" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="HeadOfficeId" Type="Int32" Nullable="false" />
+    <Property Name="BranchName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="District" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Metropolitan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SubMetropolitan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Municipality" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GauPalika" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="WardNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int64" />
+    <Property Name="Web" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="EmailId" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="PanNo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="VatNo" Type="Int32" />
+    <Property Name="EstablishDate" Type="DateTime" Precision="3" />
+    <Property Name="RegisteredDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DeletedBy" Type="Int32" />
+    <NavigationProperty Name="SetupHaeadOffice" Relationship="DMSModel.Fk_SetupBranch_SetupHeadOffice_HeadOfficeId" FromRole="SetupBranch" ToRole="SetupHaeadOffice" />
+  </EntityType>
+  <Association Name="Fk_SetupBranch_SetupHeadOffice_HeadOfficeId">
+    <End Type="DMSModel.SetupHaeadOffice" Role="SetupHaeadOffice" Multiplicity="1" />
+    <End Type="DMSModel.SetupBranch" Role="SetupBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SetupHaeadOffice">
+        <PropertyRef Name="HeadOfficeId" />
+      </Principal>
+      <Dependent Role="SetupBranch">
+        <PropertyRef Name="HeadOfficeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -6,9 +6,9 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="input-group input-group-sm">
-            <input type="text" class="form-control" id="headOfficeNameId" onkeypress="searchFunction(' ')">
+            <input type="text" class="form-control" id="branchNameId" onkeypress="searchFunction(' ')">
             <span class="input-group-btn">
-                <button type="button" class="btn btn-info btn-flat" onclick="searchFunction(' ')">Search</button>
+                <button type="button" class="btn btn-info btn-flat" onclick="searchFnction(' ')">Search</button>
             </span>
         </div>
     </div>
@@ -21,19 +21,19 @@
 <div class="table table-responsive">
 
 
-    <div id="headOfficeList"></div>
+    <div id="branchList"></div>
 
 </div>
 @*<link href="~/Content/AdminLTE.css" rel="stylesheet" />
     <script src="~/Scripts/CustomScripts/globalFunction.js"></script>*@
 
-<div class="modal fade" id="add-headOffice" tabindex="-1" role="dialog" aria-labelledby="addHeadOffice">
-    @{Html.RenderAction("Create", "SetupHeadOffice");}
+<div class="modal fade" id="add-branch" tabindex="-1" role="dialog" aria-labelledby="addBranch">
+    @{Html.RenderAction("Create", "SetupBranch");}
 </div>
 
-<div class="modal fade" id="update-headOffice" tabindex="-1" role="dialog" aria-labelledby="editHeadOffice">
-        @{Html.RenderAction("Edit", "SetupHeadOffice");}
-    </div>
+<div class="modal fade" id="update-branch" tabindex="-1" role="dialog" aria-labelledby="editBranch">
+    @{Html.RenderAction("Edit", "SetupBranch");}
+</div>
 
 <div class="modal fade" id="delete-conformation" tabindex="-1" role="dialog" aria-labelledby="deleteconformation">
     @{Html.RenderAction("DeleteConformation", "CommonAjaxRequest", new { area = "" });}
@@ -42,6 +42,7 @@
 
 <script>
     $(document).ready(function (e) {
-        search($('#headOfficeNameId').val(), '', '#headOfficeList', '_GetHeadOfficeList', 'SetupHeadOffice', 'SetupArea');
+        search($('#branchNameId').val(), '', '#branchList', '_GetBranchList', 'SetupBranch', 'SetupArea');
     });
 </script>
+

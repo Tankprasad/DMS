@@ -12,17 +12,12 @@ namespace DMS.DMS.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class SetupHaeadOffice
+    public partial class SetupBranch
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SetupHaeadOffice()
-        {
-            this.SetupBranches = new HashSet<SetupBranch>();
-        }
-    
+        public int BranchId { get; set; }
+        public string BranchCode { get; set; }
         public int HeadOfficeId { get; set; }
-        public string HeadOfficeCode { get; set; }
-        public string HeadOfficeName { get; set; }
+        public string BranchName { get; set; }
         public string ImageName { get; set; }
         public string ImagePath { get; set; }
         public string Location { get; set; }
@@ -48,7 +43,6 @@ namespace DMS.DMS.Entities
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<int> DeletedBy { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SetupBranch> SetupBranches { get; set; }
+        public virtual SetupHaeadOffice SetupHaeadOffice { get; set; }
     }
 }

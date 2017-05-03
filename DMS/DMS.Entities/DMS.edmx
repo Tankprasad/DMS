@@ -5,6 +5,39 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SetupBranch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchCode" Type="nvarchar" MaxLength="300" />
+          <Property Name="HeadOfficeId" Type="int" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="300" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="600" />
+          <Property Name="Location" Type="nvarchar" MaxLength="300" />
+          <Property Name="State" Type="nvarchar" MaxLength="200" />
+          <Property Name="District" Type="nvarchar" MaxLength="200" />
+          <Property Name="Metropolitan" Type="nvarchar" MaxLength="200" />
+          <Property Name="SubMetropolitan" Type="nvarchar" MaxLength="200" />
+          <Property Name="Municipality" Type="nvarchar" MaxLength="200" />
+          <Property Name="GauPalika" Type="nvarchar" MaxLength="200" />
+          <Property Name="WardNo" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhoneNumber" Type="bigint" />
+          <Property Name="Web" Type="nvarchar" MaxLength="300" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="300" />
+          <Property Name="PanNo" Type="nvarchar" MaxLength="300" />
+          <Property Name="VatNo" Type="int" />
+          <Property Name="EstablishDate" Type="datetime" />
+          <Property Name="RegisteredDate" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="DeletedBy" Type="int" />
+        </EntityType>
         <EntityType Name="SetupDepartment">
           <Key>
             <PropertyRef Name="DepartmentId" />
@@ -51,9 +84,26 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="DeletedBy" Type="int" />
         </EntityType>
+        <Association Name="Fk_SetupBranch_SetupHeadOffice_HeadOfficeId">
+          <End Role="SetupHaeadOffice" Type="Self.SetupHaeadOffice" Multiplicity="1" />
+          <End Role="SetupBranch" Type="Self.SetupBranch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SetupHaeadOffice">
+              <PropertyRef Name="HeadOfficeId" />
+            </Principal>
+            <Dependent Role="SetupBranch">
+              <PropertyRef Name="HeadOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DMSModelStoreContainer">
+          <EntitySet Name="SetupBranch" EntityType="Self.SetupBranch" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SetupDepartment" EntityType="Self.SetupDepartment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SetupHaeadOffice" EntityType="Self.SetupHaeadOffice" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Fk_SetupBranch_SetupHeadOffice_HeadOfficeId" Association="Self.Fk_SetupBranch_SetupHeadOffice_HeadOfficeId">
+            <End Role="SetupHaeadOffice" EntitySet="SetupHaeadOffice" />
+            <End Role="SetupBranch" EntitySet="SetupBranch" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -76,6 +126,11 @@
         <EntityContainer Name="DMSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SetupDepartments" EntityType="Self.SetupDepartment" />
           <EntitySet Name="SetupHaeadOffices" EntityType="DMSModel.SetupHaeadOffice" />
+          <EntitySet Name="SetupBranches" EntityType="DMSModel.SetupBranch" />
+          <AssociationSet Name="Fk_SetupBranch_SetupHeadOffice_HeadOfficeId" Association="DMSModel.Fk_SetupBranch_SetupHeadOffice_HeadOfficeId">
+            <End Role="SetupHaeadOffice" EntitySet="SetupHaeadOffices" />
+            <End Role="SetupBranch" EntitySet="SetupBranches" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="SetupHaeadOffice">
           <Key>
@@ -108,7 +163,54 @@
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="DeletedBy" Type="Int32" />
+          <NavigationProperty Name="SetupBranches" Relationship="DMSModel.Fk_SetupBranch_SetupHeadOffice_HeadOfficeId" FromRole="SetupHaeadOffice" ToRole="SetupBranch" />
         </EntityType>
+        <EntityType Name="SetupBranch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchCode" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="HeadOfficeId" Type="Int32" Nullable="false" />
+          <Property Name="BranchName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Metropolitan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SubMetropolitan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Municipality" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GauPalika" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="WardNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="Int64" />
+          <Property Name="Web" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="PanNo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="VatNo" Type="Int32" />
+          <Property Name="EstablishDate" Type="DateTime" Precision="3" />
+          <Property Name="RegisteredDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="DeletedBy" Type="Int32" />
+          <NavigationProperty Name="SetupHaeadOffice" Relationship="DMSModel.Fk_SetupBranch_SetupHeadOffice_HeadOfficeId" FromRole="SetupBranch" ToRole="SetupHaeadOffice" />
+        </EntityType>
+        <Association Name="Fk_SetupBranch_SetupHeadOffice_HeadOfficeId">
+          <End Type="DMSModel.SetupHaeadOffice" Role="SetupHaeadOffice" Multiplicity="1" />
+          <End Type="DMSModel.SetupBranch" Role="SetupBranch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SetupHaeadOffice">
+              <PropertyRef Name="HeadOfficeId" />
+            </Principal>
+            <Dependent Role="SetupBranch">
+              <PropertyRef Name="HeadOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -160,6 +262,40 @@
                 <ScalarProperty Name="HeadOfficeName" ColumnName="HeadOfficeName" />
                 <ScalarProperty Name="HeadOfficeCode" ColumnName="HeadOfficeCode" />
                 <ScalarProperty Name="HeadOfficeId" ColumnName="HeadOfficeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SetupBranches">
+            <EntityTypeMapping TypeName="DMSModel.SetupBranch">
+              <MappingFragment StoreEntitySet="SetupBranch">
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RegisteredDate" ColumnName="RegisteredDate" />
+                <ScalarProperty Name="EstablishDate" ColumnName="EstablishDate" />
+                <ScalarProperty Name="VatNo" ColumnName="VatNo" />
+                <ScalarProperty Name="PanNo" ColumnName="PanNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Web" ColumnName="Web" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="WardNo" ColumnName="WardNo" />
+                <ScalarProperty Name="GauPalika" ColumnName="GauPalika" />
+                <ScalarProperty Name="Municipality" ColumnName="Municipality" />
+                <ScalarProperty Name="SubMetropolitan" ColumnName="SubMetropolitan" />
+                <ScalarProperty Name="Metropolitan" ColumnName="Metropolitan" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="HeadOfficeId" ColumnName="HeadOfficeId" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

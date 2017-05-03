@@ -172,11 +172,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\SetupArea\Controllers\SetupBranchController.cs" />
     <Compile Include="Areas\SetupArea\Controllers\SetupDepartmentController.cs" />
     <Compile Include="Areas\SetupArea\Controllers\SetupHeadOfficeController.cs" />
+    <Compile Include="Areas\SetupArea\Models\SetupMasterViewModel\SetupBranchViewModel.cs" />
     <Compile Include="Areas\SetupArea\Models\SetupMasterViewModel\SetupDepartmentViewModel.cs" />
     <Compile Include="Areas\SetupArea\Models\SetupMasterViewModel\SetupHeadOfficeViewModel.cs" />
     <Compile Include="Areas\SetupArea\SetupAreaAreaRegistration.cs" />
+    <Compile Include="CommonUtilities\GlobalFunction.cs" />
     <Compile Include="CommonUtilities\HtmlPaginationHelper.cs" />
     <Compile Include="CommonUtilities\UtilitiesMessage.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -197,6 +200,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DMS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DMS.Entities\SetupBranch.cs">
+      <DependentUpon>DMS.tt</DependentUpon>
     </Compile>
     <Compile Include="DMS.Entities\SetupDepartment.cs">
       <DependentUpon>DMS.tt</DependentUpon>
@@ -250,6 +256,10 @@
     <Content Include="Areas\SetupArea\Views\SetupHeadOffice\Create.cshtml" />
     <Content Include="Areas\SetupArea\Views\SetupHeadOffice\Edit.cshtml" />
     <Content Include="Areas\SetupArea\Views\SetupDepartment\Edit.cshtml" />
+    <Content Include="Areas\SetupArea\Views\SetupBranch\Index.cshtml" />
+    <Content Include="Areas\SetupArea\Views\SetupBranch\_GetBranchList.cshtml" />
+    <Content Include="Areas\SetupArea\Views\SetupBranch\Create.cshtml" />
+    <Content Include="Areas\SetupArea\Views\SetupBranch\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\globalFunction.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

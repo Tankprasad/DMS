@@ -27,5 +27,6 @@ namespace DMS.DMS.Entities
     
         public virtual DbSet<SetupDepartment> SetupDepartments { get; set; }
         public virtual DbSet<SetupHaeadOffice> SetupHaeadOffices { get; set; }
+        public virtual DbSet<SetupBranch> SetupBranches { get; set; }
     }
 }

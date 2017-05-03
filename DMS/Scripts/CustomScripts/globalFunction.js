@@ -93,15 +93,15 @@ var search = function (val,page,searchHtmlInnerId, actionName, controllerName, a
     });
 };
 
-//message alter or poup
+//message alert or popup
 
 var bootstrap_alert = function (elem, message, timeout, classMesssage) {
     if (successCheck) {
-        $(elem).show().html('<div class=alert-success fade in"" style="height:40px;"><button type="button" class="close" data-dismiss="alert" >&times;</button><span>' + message + '</span></div>');
+        $(elem).show().html('<div class="alert-success fade in"" style="height:40px;"><button type="button" class="close" data-dismiss="alert" >&times;</button><span>' + message + '</span></div>');
 
     }
     else {
-        $(elem).show().html('<div class=alert-danger fade in""style="height:40px;"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>' + message + '</span></div>');
+        $(elem).show().html('<div class=alert alert-danger fade in""style="height:40px;"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>' + message + '</span></div>');
 
     }
 

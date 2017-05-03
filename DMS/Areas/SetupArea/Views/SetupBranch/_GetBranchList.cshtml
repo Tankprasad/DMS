@@ -1,4 +1,4 @@
-﻿@model DMS.Areas.SetupArea.Models.SetupMasterViewModel.SetupHeadOfficeViewModel
+﻿@model DMS.Areas.SetupArea.Models.SetupMasterViewModel.SetupBranchViewModel
 @{
 
     int i = 1;
@@ -7,12 +7,12 @@
 <link href="~/Content/AdminLTE.css" rel="stylesheet" />
 <div class="box box-solid box-primary">
     <div class="box-header">
-        <h3 class="box-title">Head Office List</h3>
+        <h3 class="box-title">Branch List</h3>
     </div>
     <div class="box-body">
         <div class="row">
             <div class="col-sm-2">
-                <input type="button" value="Add New" class="btn btn-primary" onclick="addNew('#add-headOffice', 'Create', 'SetupHeadOffice', 'SetupArea')" />
+                <input type="button" value="Add New" class="btn btn-primary" onclick="addNew('#add-branch', 'Create', 'SetupBranch', 'SetupArea')" />
             </div>
 
         </div>
@@ -20,22 +20,22 @@
             <thead>
                 <tr>
                     <th>S.N</th>
-                    <th>HeadOffice</th>
+                    <th>Branch</th>
                     <th>Active</th>
                     <th>Action</th>
                 </tr>
 
             </thead>
             <tbody>
-                @foreach (var item in Model.SetupHeadOfficeViewModelList)
+                @foreach (var item in Model.SetupBranchViewModelList)
                 {
                     <tr class="even pointer">
                         <td>@i</td>
-                        <td>@item.HeadOfficeName</td>
+                        <td>@item.BranchName</td>
                         <td>@item.Status</td>
                         <td style="width:300px;">
-                            <button class="btn btn-primary" onclick="update(@item.HeadOfficeId,'#update-headOffice','Edit','SetupHeadOffice', 'SetupArea')"><span class="fa fa-edit"></span></button>
-                            <button class="btn btn-danger" onclick="deleteRow(@item.HeadOfficeId,'@item.HeadOfficeName','Delete','SetupHeadOffice','_GetHeadOfficeList','SetupArea','#headOfficeList')"><span class="fa fa-trash"></span></button>
+                            <button class="btn btn-primary" onclick="update(@item.BranchId,'#update-branch','Edit','SetupBranch', 'SetupArea')"><span class="fa fa-edit"></span></button>
+                            <button class="btn btn-danger" onclick="deleteRow(@item.BranchId,'@item.BranchName','Delete','SetupBranch','_GetBranchList','SetupArea','#branchList')"><span class="fa fa-trash"></span></button>
                         </td>
 
                     </tr>
@@ -93,11 +93,10 @@
     </div>
 </div>
 
-
 <script>
-    
     var searchFunction = function (val) {
-        search($('#headOfficeNameId').val(), val, '#headOfficeList', '_GetHeadOfficeList', 'SetupHeadOffice', 'SetupArea')
+        search($('#branchNameId').val(), val, '#branchList', '_GetBranchList', 'SetupBranch', 'SetupArea')
     }
 </script>
+
 

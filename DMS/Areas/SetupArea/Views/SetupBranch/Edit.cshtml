@@ -1,0 +1,164 @@
+﻿@model DMS.Areas.SetupArea.Models.SetupMasterViewModel.SetupBranchViewModel
+
+
+<form id="updateSetupBranch">
+    <div class="modal-dialog" style="margin-left:21%;">
+        <div class="modal-content" style="width:900px !important;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="">×</span>
+                </button>
+                <h4 class="box-primary" id="editBranch">
+                    <strong>Update Branch</strong>
+                </h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Edit", "SetupBranch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(Model => Model.BranchId)
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-sm-4">
+                                <label>
+                                    Branch Name<span style="color:red">*</span>
+                                </label>
+                                @Html.TextBoxFor(model => model.BranchName, new { @class = "form-control", @placeholder = "Branch Name" })
+                            </div>
+                            <div class="col-sm-4">
+                                <label>
+                                    Branch Code<span style="color:red">*</span>
+                                </label>
+                                @Html.TextBoxFor(model => model.BranchCode, new { @class = "form-control", @placeholder = "Branch Code" })
+                            </div>
+                            <div class="col-sm-4">
+                                <label>
+                                    Head Office Name<span style="color:red">*</span>
+                                </label>
+                                @Html.DropDownListFor(model => model.HeadOfficeId, DMS.CommonUtilities.GlobalFunction.GetHeadOfficeList(), new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-4">
+                                    <label>
+                                        Company Logo
+                                    </label>
+                                    <input type="file" name="file" />
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label>
+                                    Contact Number<span style="color:red">*</span>
+                                </label>
+                                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = "Phone number" })
+                            </div>
+                            <div class="col-sm-4">
+                                <label>
+                                    Web Site
+                                </label>
+                                @Html.TextBoxFor(model => model.Web, new { @class = "form-control", @placeholder = "Web Site" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-4">
+                                    <label>
+                                        Email-Id
+                                    </label>
+                                    @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", @placeholder = "Email Id" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>
+                                        Pan Number
+                                    </label>
+                                    @Html.TextBoxFor(model => model.PanNo, new { @class = "form-control", @placeholder = "Pan number" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>
+                                        Vat Number
+                                    </label>
+                                    @Html.TextBoxFor(model => model.VatNo, new { @class = "form-control", @placeholder = "Vat Number" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-4">
+                                    <label>
+                                        Register Date<span style="color:red">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.RegisteredDate, new { @class = "form-control", @placeholder = "Registered Date" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>
+                                        Establish Date
+                                    </label>
+                                    @Html.TextBoxFor(model => model.EstablishDate, new { @class = "form-control", @placeholder = "Establish Date" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>
+                                        State<span style="color:red">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.State, new { @class = "form-control", @placeholder = "State" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-4">
+                                    <label>
+                                        District<span style="color:red">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.District, new { @class = "form-control", @placeholder = "District" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>
+                                        Metropolitan
+                                    </label>
+                                    @Html.TextBoxFor(model => model.Metropolitan, new { @class = "form-control", @placeholder = "Metropolitan" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>
+                                        SubMetropolitan
+                                    </label>
+                                    @Html.TextBoxFor(model => model.SubMetropolitan, new { @class = "form-control", @placeholder = "SubMetropolitan" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-4">
+                                    <label>
+                                        Municipality
+                                    </label>
+                                    @Html.TextBoxFor(model => model.Municipality, new { @class = "form-control", @placeholder = "Municipality" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>
+                                        GauPalika
+                                    </label>
+                                    @Html.TextBoxFor(model => model.GauPalika, new { @class = "form-control", @placeholder = "GauPalika" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>
+                                        Ward No.<span style="color:red">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.WardNo, new { @class = "form-control", @placeholder = "Ward Number" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <input type="button" class="btn btn-primary" value="Update" onclick="postData('#updateSetupBranch', '#update-branch', 'Edit', 'SetupBranch', 'SetupArea', '#branchList', '_GetBranchList')" />
+                        </div>
+                }
+            </div>
+        </div>
+    </div>
+</form>

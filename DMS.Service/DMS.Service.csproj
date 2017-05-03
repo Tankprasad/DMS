@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetupViewModelProviders\SetupBranchProvider.cs" />
     <Compile Include="SetupViewModelProviders\SetupDepartmentProvider.cs" />
     <Compile Include="SetupViewModelProviders\SetupHeadOfficeProvider.cs" />
   </ItemGroup>

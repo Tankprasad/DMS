@@ -9,6 +9,7 @@
     <div class="box-header">
         <h3 class="box-title">Department List</h3>
     </div>
+  
     <div class="box-body">
         <div class="row">
             <div class="col-sm-2">
@@ -94,7 +95,8 @@
 </div>
 
 <script>
-    var searchFnction = function (val) {
+    
+    var searchFunction = function (val) {
         search($('#departmentNameId').val(), val, '#departmentList', '_GetDepartmentList', 'SetupDepartment', 'SetupArea')
     }
 </script>
